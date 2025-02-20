@@ -95,8 +95,8 @@ resource "google_sql_database_instance" "uc-2-sql" {
         backup_configuration {
             enabled = true # Enable automatic backups
         }
-
     }
+    deletion_protection = false
 }
 
 #creating a SQL DATABASE
