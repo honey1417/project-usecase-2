@@ -15,3 +15,4 @@ Integrate the IaC scripts with your CI/CD pipeline to automate infrastructure de
 4. Create a managed instance group (MIG)
 5. Attach the MIG to a backend service
 6. Create a load balancer and attach the backend
+7. Create MYSQL instance, db and user
