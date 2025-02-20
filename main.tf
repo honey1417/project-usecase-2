@@ -20,7 +20,7 @@ resource "google_compute_instance_template" "uc-2-template" {
     machine_type = var.machine_type
     boot_disk {
         initialize_params {
-        image = var.image
+        source = var.image
         }
     }
     network_interface {
