@@ -17,6 +17,7 @@ resource "google_compute_health_check" "uc-2-hc" {
 resource "google_compute_instance_template" "uc-2-template" {
     name = var.vm_template_name
     machine_type = var.machine_type
+    deletion_protection = false
     disk {
     auto_delete  = true
     boot         = true
