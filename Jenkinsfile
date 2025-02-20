@@ -38,16 +38,6 @@ pipeline {
                 }
             }
         }
-        stage ('Terraform Destroy') {
-            steps {
-                script {
-                    echo 'Destroying existing infrastructure....'
-                    withCredentials([string(credentialsId: 'sql-db-creds', variable: 'SQL_PASSWORD')]) {
-                        sh 'terraform destroy -auto-approve -var="db_password=${SQL_PASSWORD}"'
-                    }
-                }
-            }
-        }
        stage ('Terraform Plan') {
             steps {
                 script {
