@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     environment {
-        GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp-credentials')
+        GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp-creds')
         TF_SQL_PASSWORD = credentials('sql-db-creds')
         PROJECT_ID = "harshini-450807"
         REGION = "us-east1"
