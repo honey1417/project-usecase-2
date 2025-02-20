@@ -18,11 +18,11 @@ resource "google_compute_instance_template" "uc-2-template" {
     name = var.vm_template_name
     zone = var.zone
     machine_type = var.machine_type
-    boot_disk {
-        initialize_params {
-        source_image = var.image
-        }
-    }
+    disk {
+    auto_delete  = true
+    boot         = true
+    source_image = var.image
+  }
     network_interface {
         network = "default"
         access_config {}
