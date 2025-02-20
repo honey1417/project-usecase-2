@@ -63,7 +63,6 @@ resource "google_compute_backend_service" "uc-2-backend" {
     health_checks = [google_compute_health_check.uc-2-hc.self_link]
     backend {
         group = google_compute_region_instance_group_manager.uc-2-mig.instance_group
-        port = 80
     }
 }
 
