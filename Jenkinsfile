@@ -2,7 +2,7 @@ pipeline {
     agent any 
     environment {
         GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp-creds')
-        TF_SQL_PASSWORD = credentials('sql-db-creds')
+        SQL_PASSWORD = credentials('sql-db-creds')
         PROJECT_ID = "harshini-450807"
         REGION = "us-east1"
     }
@@ -38,19 +38,22 @@ pipeline {
                 }
             }
         }
-        stage ('Terraform Plan') {
+       stage ('Terraform Plan') {
             steps {
                 script {
                     echo 'Planning Terraform....'
-                    sh 'terraform plan -var="db_password=${TF_SQL_PASSWORD}"'
+                    withCredentials([string(credentialsId: 'sql-db-creds', variable: 'SQL_PASSWORD')]) {
+                        sh 'terraform plan -var="db_password=${SQL_PASSWORD}"'
+                    }
                 }
             }
         }
+
         stage ('Terraform Apply') {
             steps {
                 script {
                     echo 'Applying Terraform....'
-                    withCredentials([file(credentialsId: 'sql-db-creds', variable: 'TF_SQL_PASSWORD')]) {
+                    withCredentials([file(credentialsId: 'sql-db-creds', variable: 'SQL_PASSWORD')]) {
                         sh 'terraform apply -auto-approve'
                     }
                 }
