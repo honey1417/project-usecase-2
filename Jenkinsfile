@@ -54,7 +54,7 @@ pipeline {
                 script {
                     echo 'Applying Terraform....'
                     withCredentials([string(credentialsId: 'sql-db-creds', variable: 'SQL_PASSWORD')]) {
-                        sh 'terraform apply -auto-approve'
+                        sh 'terraform apply -auto-approve -var="db_password=${SQL_PASSWORD}"'
                     }
                 }
             }
