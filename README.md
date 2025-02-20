@@ -9,9 +9,9 @@ Integrate the IaC scripts with your CI/CD pipeline to automate infrastructure de
 
 
 ----order of execution of terraform script----
-Store Terraform state in a GCS bucket (provider.tf)
-Create a health check
-Create an instance template
-Create a managed instance group (MIG)
-Attach the MIG to a backend service
-Create a load balancer and attach the backend
+1. Store Terraform state in a GCS bucket (provider.tf)
+2. Create a health check
+3. Create an instance template
+4. Create a managed instance group (MIG)
+5. Attach the MIG to a backend service
+6. Create a load balancer and attach the backend
