@@ -44,6 +44,7 @@ pipeline {
                     echo 'Planning Terraform....'
                     withCredentials([string(credentialsId: 'sql-db-creds', variable: 'SQL_PASSWORD')]) {
                         sh 'terraform plan -var="db_password=${SQL_PASSWORD}"'
+
                     }
                 }
             }
