@@ -66,5 +66,5 @@ variable "fr_name" {
 variable "db_password" {
     description = "Password for the SQL instance"
     type = string
-    sensitive = true
+    default = "sql"
 }
