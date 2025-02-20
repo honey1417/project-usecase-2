@@ -53,7 +53,7 @@ pipeline {
             steps {
                 script {
                     echo 'Applying Terraform....'
-                    withCredentials([file(credentialsId: 'sql-db-creds', variable: 'SQL_PASSWORD')]) {
+                    withCredentials([string(credentialsId: 'sql-db-creds', variable: 'SQL_PASSWORD')]) {
                         sh 'terraform apply -auto-approve'
                     }
                 }
