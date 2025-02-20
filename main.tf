@@ -16,7 +16,6 @@ resource "google_compute_health_check" "uc-2-hc" {
 #creating a INSTANCE TEMPLATE with startup script
 resource "google_compute_instance_template" "uc-2-template" {
     name = var.vm_template_name
-    zone = var.zone
     machine_type = var.machine_type
     disk {
     auto_delete  = true
@@ -92,7 +91,6 @@ resource "google_compute_global_forwarding_rule" "uc-2-http-fr" {
 #create MYSQL DataBase instance
 resource "google_sql_database_instance" "uc-2-sql" {
     name = "usecase-2-sql-instance" # Name of the SQL instance
-    region = var.region
     database_version = "MYSQL_8_0"
     settings {
         tier = "db-g1-small"
