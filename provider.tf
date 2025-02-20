@@ -7,7 +7,7 @@ terraform {
       }
     }
     backend "gcs" {
-      bucket = var.backend_bucket_name
+      bucket = "harshini-450807-bucket"
       prefix = "terraform/state"
     }
     

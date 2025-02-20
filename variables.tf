@@ -13,11 +13,6 @@ variable "zone" {
     type = string
     default = "us-east1-a"
 }
-variable "backend_bucket_name"{
-    description = "Name of the backend bucket"
-    type = string
-    default = "harshini-450807-bucket"
-}
 variable "hc_name" {
     description = "Name of the health check"
     type = string
