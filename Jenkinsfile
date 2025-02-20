@@ -42,7 +42,7 @@ pipeline {
             steps {
                 script {
                     echo 'Planning Terraform....'
-                    sh 'terraform plan' 
+                    sh 'terraform plan -var="db_password=${TF_SQL_PASSWORD}"'
                 }
             }
         }
