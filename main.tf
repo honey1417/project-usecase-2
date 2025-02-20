@@ -20,9 +20,7 @@ resource "google_compute_instance_template" "uc-2-template" {
     disk {
     auto_delete  = true
     boot         = true
-    initialize_params {
-        image = var.image
-    }
+    source_image = var.image
   }
     network_interface {
         network = "default"
