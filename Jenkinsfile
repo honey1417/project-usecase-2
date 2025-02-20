@@ -26,7 +26,7 @@ pipeline {
                 script {
                     echo 'Authenticating with GCP....'
                     sh 'gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}'
-                    sh 'gcloud config set project ${project-id}'
+                    sh 'gcloud config set project ${PROJECT_ID}'
                 }
             }
         }
