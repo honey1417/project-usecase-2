@@ -44,7 +44,6 @@ resource "google_compute_instance_template" "uc-2-template" {
 resource "google_compute_region_instance_group_manager" "uc-2-mig" {
     name = var.mig_name
     base_instance_name = var.vm_template_name
-    region = var.region
 
     version {
         instance_template = google_compute_instance_template.uc-2-template.self_link
